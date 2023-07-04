@@ -78,7 +78,7 @@ To run this project, you will need:
 
 ## Usage
 
-- To run the application with Docker, have your docker daemon running. Then, simply type the following command in the project root folder which has the `docker-compose.yml` file.
+- To run the application with Docker, have your docker daemon running. Then, simply type the following command in a terminal inside the project root folder which has the `docker-compose.yml` file.
 
   ```
   docker compose up -d
