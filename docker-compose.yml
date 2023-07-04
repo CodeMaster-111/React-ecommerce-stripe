@@ -1,0 +1,22 @@
+version: '3'
+services:
+  frontend:
+    container_name: fullstack_ecomm_stripe_client
+    build:
+      context: ./client
+    ports:
+      - 3000:3000
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+    restart: always
+  backend:
+    container_name: fullstack_ecomm_stripe_server
+    restart: always
+    build: 
+      context: ./server
+    volumes:
+      - ./server:/app
+      - /app/node_modules
+    ports:
+      - 1337:1337
