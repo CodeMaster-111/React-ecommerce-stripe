@@ -131,12 +131,12 @@ const Checkout = () => {
     );
 
     const session = await response.data;
+    console.log("response from server", session)
 
     await stripe.redirectToCheckout({
       sessionId: session.id,
     });
   };
-
   return (
     <Box width="80%" m="100px auto">
       <Stepper activeStep={activeStep} sx={{ m: "20px 0" }}>

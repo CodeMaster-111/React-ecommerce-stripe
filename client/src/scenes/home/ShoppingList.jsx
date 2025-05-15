@@ -17,12 +17,15 @@ const ShoppingList = () => {
   };
 
   const getItems = async () => {
-    const items = await axios.get(
-      "http://localhost:1337/api/items?populate=image"
-    );
-
-    const itemsJson = await items.data;
-    dispatch(setItems(itemsJson.data));
+    try {
+      const response = await axios.get("http://localhost:1337/api/items?populate=*");
+      console.log("API Response:", response);
+      if (response.data && response.data.data) {
+        dispatch(setItems(response.data.data));
+      }
+    } catch (error) {
+      console.error("Error fetching items:", error.response || error);
+    }
   };
 
   useEffect(() => {
